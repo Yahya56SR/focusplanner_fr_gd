@@ -4,16 +4,31 @@ class Navbar extends StatelessWidget implements PreferredSizeWidget {
   final bool isDarkMode;
   final Function toggleTheme;
 
-  const Navbar({Key? key, required this.isDarkMode, required this.toggleTheme})
-      : super(key: key);
+  const Navbar(
+      {super.key, required this.isDarkMode, required this.toggleTheme});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text('FocusPlanner'),
+      backgroundColor: isDarkMode ? Colors.black : Colors.white,
+      title: Text(
+        'FocusPlanner',
+        style: TextStyle(color: isDarkMode ? Colors.white : Colors.black),
+      ),
       actions: [
+        GestureDetector(
+          child: Container(
+            child: Text(
+              'Home',
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+          ),
+        ),
         IconButton(
-          icon: Icon(isDarkMode ? Icons.wb_sunny : Icons.nightlight_round),
+          icon: Icon(
+            isDarkMode ? Icons.wb_sunny : Icons.nightlight_round,
+            color: isDarkMode ? Colors.white : Colors.black,
+          ),
           onPressed: () => toggleTheme(),
         ),
       ],
@@ -21,5 +36,5 @@ class Navbar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(60.0); // Height of the AppBar
+  Size get preferredSize => Size.fromHeight(60.0);
 }

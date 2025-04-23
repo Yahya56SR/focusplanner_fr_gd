@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:focusplanner/pages/home_page.dart';
-
-import 'components/footer.dart';
-import 'components/navbar.dart';
+import 'pages/home_page.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
-  _MyAppState createState() => _MyAppState();
+  MyAppState createState() => MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class MyAppState extends State<MyApp> {
   bool isDarkMode = false;
 
   void toggleTheme() {
@@ -28,14 +27,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
-      home: Scaffold(
-        appBar: Navbar(
-          isDarkMode: isDarkMode,
-          toggleTheme: toggleTheme,
-        ),
-        body: HomePage(toggleTheme: toggleTheme, isDarkMode: isDarkMode),
-        bottomNavigationBar: Footer(),
-      ),
+      home: HomePage(),
     );
   }
 }

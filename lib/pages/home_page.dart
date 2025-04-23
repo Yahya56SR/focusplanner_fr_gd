@@ -1,41 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:focusplanner/components/navbar.dart';
-import 'package:focusplanner/pages/features_page.dart';
+import '../components/footer.dart';
+import '../components/testimonials.dart';
 
-class HomePage extends StatelessWidget {
-  final Function toggleTheme;
-  final bool isDarkMode;
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
-  const HomePage(
-      {super.key, required this.toggleTheme, required this.isDarkMode});
+  @override
+  HomePageState createState() => HomePageState();
+}
+
+class HomePageState extends State<HomePage> {
+  bool isDarkMode = false;
+
+  void toggleTheme() {
+    setState(() {
+      isDarkMode = !isDarkMode;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'Welcome to FocusPlanner!',
-            style: Theme.of(context).textTheme.headlineLarge,
-          ),
-          const SizedBox(height: 20),
-          Text(
-            'Your productivity starts here.',
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-          const SizedBox(height: 40),
-          ElevatedButton(
-            onPressed: () {
-              // Navigate to the features page
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const FeaturesPage()),
-              );
-            },
-            child: const Text('Explore Features'),
-          ),
-        ],
+    return Scaffold(
+      appBar: Navbar(
+        isDarkMode: isDarkMode,
+        toggleTheme: toggleTheme,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.all(30),
+              color: isDarkMode ? Colors.black : Colors.white,
+              child: Text(
+                'Welcome to FocusPlanner',
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  color: isDarkMode ? Colors.white : Colors.black,
+                ),
+              ),
+            ),
+            Testimonials(),
+            Footer(),
+          ],
+        ),
       ),
     );
   }
