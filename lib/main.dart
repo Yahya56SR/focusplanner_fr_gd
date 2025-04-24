@@ -1,33 +1,51 @@
 import 'package:flutter/material.dart';
-import 'pages/home_page.dart';
+import 'package:provider/provider.dart';
+
+import 'providers/theme_provider.dart';
+import 'widgets/contact_section.dart';
+import 'widgets/faq_section.dart';
+import 'widgets/features_section.dart';
+import 'widgets/footer.dart';
+import 'widgets/hero_section.dart';
+import 'widgets/navbar.dart';
+import 'widgets/testimonials_section.dart';
+import 'widgets/theme_showcase.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => ThemeProvider(),
+      child: const FocusPlannerApp(),
+    ),
+  );
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-
-  @override
-  MyAppState createState() => MyAppState();
-}
-
-class MyAppState extends State<MyApp> {
-  bool isDarkMode = false;
-
-  void toggleTheme() {
-    setState(() {
-      isDarkMode = !isDarkMode;
-    });
-  }
+class FocusPlannerApp extends StatelessWidget {
+  const FocusPlannerApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return MaterialApp(
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
-      themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
-      home: HomePage(),
+      debugShowCheckedModeBanner: false,
+      title: 'FocusPlanner',
+      theme: themeProvider.currentTheme,
+      home: Scaffold(
+        body: const SingleChildScrollView(
+          child: Column(
+            children: const [
+              NavBar(),
+              HeroSection(),
+              FeaturesSection(),
+              TestimonialsSection(),
+              ThemeShowcaseSection(),
+              FAQSection(),
+              ContactSection(),
+              Footer(),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

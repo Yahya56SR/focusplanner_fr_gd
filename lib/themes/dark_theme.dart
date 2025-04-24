@@ -1,191 +1,107 @@
-// filepath: c:\Users\hp\Desktop\focusplanner\lib\themes\dark_theme.dart
 import 'package:flutter/material.dart';
 
-// Define color constants for dark theme
-const Color primaryBlue = Color(0xFF2196F3); // Primary Blue
-const Color blue700 = Color(0xFF1976D2); // Blue 700
-const Color blue400 = Color(0xFF42A5F5); // Blue 400
-const Color blue200 = Color(0xFF90CAF9); // Blue 200
-const Color blue50 = Color(0xFFE3F2FD); // Blue 50
-const Color grey900 = Color(0xFF212121); // Grey 900
-const Color grey700 = Color(0xFF616161); // Grey 700
-const Color grey400 = Color(0xFFBDBDBD); // Grey 400
-const Color grey200 = Color(0xFFEEEEEE); // Grey 200
-const Color grey50 = Color(0xFFFAFAFA); // Grey 50
-
-final ThemeData darkTheme = ThemeData(
-  brightness: Brightness.dark,
-  scaffoldBackgroundColor: grey900,
-
-  colorScheme: ColorScheme.dark(
-    primary: primaryBlue,
-    secondary: blue700,
-    surface: grey700, // Use this instead of background
-    onSurface: grey200, // Use this instead of onBackground
-    onPrimary: Colors.white,
-    onSecondary: Colors.white,
-  ),
-
-  // Card Theme
-  cardTheme: CardTheme(
-    color: grey700,
-    elevation: 2,
-    margin: const EdgeInsets.all(8),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(8),
-    ),
-  ),
-
-  // Divider Theme
-  dividerTheme: const DividerThemeData(
-    color: grey400,
-    thickness: 1,
-    space: 0,
-  ),
-
-  // AppBar Theme
-  appBarTheme: const AppBarTheme(
-    backgroundColor: grey900,
-    elevation: 4,
-    iconTheme: IconThemeData(color: Colors.white),
-    titleTextStyle: TextStyle(
-      color: Colors.white,
-      fontSize: 20,
-      fontWeight: FontWeight.w600,
-    ),
-  ),
-
-  // Text Theme
-  textTheme: const TextTheme(
-    displayLarge: TextStyle(
-      color: grey200,
-      fontSize: 32,
-      fontWeight: FontWeight.bold,
-    ),
-    displayMedium: TextStyle(
-      color: grey200,
-      fontSize: 28,
-      fontWeight: FontWeight.bold,
-    ),
-    displaySmall: TextStyle(
-      color: grey200,
-      fontSize: 24,
-      fontWeight: FontWeight.w600,
-    ),
-    headlineLarge: TextStyle(
-      color: grey200,
-      fontSize: 22,
-      fontWeight: FontWeight.w600,
-    ),
-    headlineMedium: TextStyle(
-      color: grey200,
-      fontSize: 20,
-      fontWeight: FontWeight.w600,
-    ),
-    headlineSmall: TextStyle(
-      color: grey200,
-      fontSize: 18,
-      fontWeight: FontWeight.w500,
-    ),
-    bodyLarge: TextStyle(
-      color: grey200,
-      fontSize: 16,
-    ),
-    bodyMedium: TextStyle(
-      color: grey400,
-      fontSize: 14,
-    ),
-    titleLarge: TextStyle(
-      color: grey200,
-      fontSize: 16,
-    ),
-    titleMedium: TextStyle(
-      color: grey400,
-      fontSize: 14,
-    ),
-    labelLarge: TextStyle(
-      color: grey200,
-      fontSize: 14,
-      fontWeight: FontWeight.bold,
-    ),
-    bodySmall: TextStyle(
-      color: grey400,
-      fontSize: 12,
-    ),
-    labelSmall: TextStyle(
-      color: grey400,
-      fontSize: 10,
-    ),
-  ),
-
-  // Elevated Button Theme
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ElevatedButton.styleFrom(
-      backgroundColor: primaryBlue,
-      foregroundColor: Colors.white,
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
+class DarkTheme {
+  static ThemeData get theme {
+    return ThemeData(
+      brightness: Brightness.dark,
+      primaryColor: Colors.blueGrey[800],
+      scaffoldBackgroundColor: Colors.grey[900],
+      colorScheme: ColorScheme.dark(
+        primary: const Color(0xffbb86fc),
+        onPrimary: Colors.black,
+        primaryContainer: const Color(0xff3700b3),
+        onPrimaryContainer: Colors.white,
+        primaryFixed: const Color(0xff6200ee),
+        primaryFixedDim: const Color(0xff3700b3),
+        onPrimaryFixed: Colors.white,
+        onPrimaryFixedVariant: const Color(0xffbb86fc),
+        secondary: const Color(0xff03dac6),
+        onSecondary: Colors.black,
+        secondaryContainer: const Color(0xff018786),
+        onSecondaryContainer: Colors.white,
+        secondaryFixed: const Color(0xff03dac6),
+        secondaryFixedDim: const Color(0xff018786),
+        onSecondaryFixed: Colors.black,
+        onSecondaryFixedVariant: const Color(0xff03dac6),
+        tertiary: const Color(0xffb00020),
+        onTertiary: Colors.white,
+        tertiaryContainer: const Color(0xff3700b3),
+        onTertiaryContainer: Colors.white,
+        tertiaryFixed: const Color(0xffb00020),
+        tertiaryFixedDim: const Color(0xff3700b3),
+        onTertiaryFixed: Colors.white,
+        onTertiaryFixedVariant: const Color(0xffb00020),
+        error: const Color(0xffcf6679),
+        onError: Colors.black,
+        errorContainer: const Color(0xffb00020),
+        onErrorContainer: Colors.white,
+        surface: const Color(0xff121212),
+        onSurface: Colors.white,
+        surfaceDim: const Color(0xff1e1e1e),
+        surfaceBright: const Color(0xff2c2c2c),
+        surfaceContainerLowest: const Color(0xff0f0f0f),
+        surfaceContainerLow: const Color(0xff1a1a1a),
+        surfaceContainer: const Color(0xff242424),
+        surfaceContainerHigh: const Color(0xff2e2e2e),
+        surfaceContainerHighest: const Color(0xff383838),
+        onSurfaceVariant: const Color(0xffd1d1d1),
+        outline: const Color(0xff737373),
+        outlineVariant: const Color(0xff8a8a8a),
+        shadow: Colors.black,
+        scrim: Colors.black,
+        inverseSurface: const Color(0xfff5f5f5),
+        onInverseSurface: const Color(0xff121212),
+        inversePrimary: const Color(0xff6200ee),
+        surfaceTint: const Color(0xffbb86fc),
       ),
-      textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-    ),
-  ),
-
-  // Text Field Theme
-  inputDecorationTheme: InputDecorationTheme(
-    filled: true,
-    fillColor: grey700,
-    border: OutlineInputBorder(
-      borderSide: BorderSide.none,
-      borderRadius: BorderRadius.circular(8),
-    ),
-    enabledBorder: OutlineInputBorder(
-      borderSide: const BorderSide(color: grey400),
-      borderRadius: BorderRadius.circular(8),
-    ),
-    focusedBorder: OutlineInputBorder(
-      borderSide: const BorderSide(color: primaryBlue),
-      borderRadius: BorderRadius.circular(8),
-    ),
-    hintStyle: const TextStyle(color: grey400),
-    labelStyle: const TextStyle(color: grey200),
-  ),
-
-  // Floating Action Button Theme
-  floatingActionButtonTheme: const FloatingActionButtonThemeData(
-    backgroundColor: primaryBlue,
-    foregroundColor: Colors.white,
-    elevation: 4,
-  ),
-
-  // Bottom Navigation Bar Theme
-  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    backgroundColor: grey900,
-    selectedItemColor: primaryBlue,
-    unselectedItemColor: grey400,
-    elevation: 4,
-  ),
-
-  // Chip Theme
-  chipTheme: ChipThemeData(
-    backgroundColor: grey700,
-    selectedColor: primaryBlue,
-    disabledColor: grey400,
-    labelStyle: const TextStyle(color: grey200),
-    secondaryLabelStyle: const TextStyle(color: Colors.white),
-    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(8),
-    ),
-  ),
-
-  // SnackBar Theme
-  snackBarTheme: SnackBarThemeData(
-    backgroundColor: grey700,
-    contentTextStyle: const TextStyle(color: Colors.white),
-    behavior: SnackBarBehavior.floating,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(8),
-    ),
-  ),
-);
+      cardColor: Colors.grey[800],
+      appBarTheme: AppBarTheme(
+        backgroundColor: Colors.blueGrey[900],
+        elevation: 0,
+        iconTheme: IconThemeData(color: Colors.white),
+        titleTextStyle: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      textTheme: TextTheme(
+        bodyLarge: TextStyle(color: Colors.white70),
+        bodyMedium: TextStyle(color: Colors.white60),
+        headlineLarge: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+        titleLarge: TextStyle(color: Colors.white70, fontSize: 20, fontWeight: FontWeight.w600),
+        bodySmall: TextStyle(color: Colors.white54, fontSize: 12),
+        labelLarge: TextStyle(color: Colors.white70, fontSize: 14, fontWeight: FontWeight.w600),
+        labelMedium: TextStyle(color: Colors.white60, fontSize: 12, fontWeight: FontWeight.w500),
+        labelSmall: TextStyle(color: Colors.white54, fontSize: 10, fontWeight: FontWeight.w400),
+        displayLarge: TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold),
+        displayMedium: TextStyle(color: Colors.white70, fontSize: 28, fontWeight: FontWeight.w600),
+        displaySmall: TextStyle(color: Colors.white60, fontSize: 24, fontWeight: FontWeight.w500),
+        headlineMedium: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+        headlineSmall: TextStyle(color: Colors.white70, fontSize: 20, fontWeight: FontWeight.w600),
+        titleMedium: TextStyle(color: Colors.white60, fontSize: 18, fontWeight: FontWeight.w500),
+        titleSmall: TextStyle(color: Colors.white54, fontSize: 16, fontWeight: FontWeight.w400),
+      ),
+      buttonTheme: ButtonThemeData(
+        buttonColor: Colors.blueGrey[700],
+        textTheme: ButtonTextTheme.primary,
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          foregroundColor: Colors.white, backgroundColor: Colors.blueGrey[700],
+          textStyle: TextStyle(fontWeight: FontWeight.bold),
+        ),
+      ),
+      iconTheme: IconThemeData(color: Colors.white70),
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: Colors.grey[800],
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8.0),
+          borderSide: BorderSide.none,
+        ),
+        hintStyle: TextStyle(color: Colors.white60),
+      ),
+    );
+  }
+}
